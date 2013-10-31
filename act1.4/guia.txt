@@ -1,0 +1,35 @@
+﻿Juego ahorcado
+
+1 -> Utilizaremos arrays para almacenar palabras.
+2 -> Utilizaremos un cronometro (Date), para saber la hora de inicio y final de la partida.
+3 -> Utilizar for-each para recorrer array y ver que no hayan palabras repetidas al introducir un anueva.
+4 -> Math utilizaremos el método random para obtener una palabra aleatoria
+5 -> Number será utilizado para un sistema de puntuaciones según el tiempo empleado.
+6 -> String uppercase(), para que se cumpla el formato de la palabra.
+7 -> Booleans en todos lados
+
+Métodos utilizados
+
+-Number => toFixed().
+
+-String => search("String")
+	 toUpperCase("String")
+	 length()
+	 equals().
+
+
+-Date => getDate()	
+	getDay()	
+	getFullYear()	
+	getHours()		
+	getMinutes()
+	getMonth()	
+	getSeconds().
+
+-Array => push().
+
+-Boolean.
+
+-Math => random().
+
+-For each
