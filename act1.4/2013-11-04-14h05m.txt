@@ -1,0 +1,4 @@
+La función de añadir palabras se ha finalizado y funciona correctamente
+Se da por terminada la primera parte del ahorcado, empezamos la segunda etapa (juego).
+-----> version ahorcado 0.3
+Se empieza con las funciones del juego
