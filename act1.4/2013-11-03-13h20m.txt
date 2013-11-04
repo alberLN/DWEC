@@ -1,0 +1,6 @@
+Editado el pdf, faltaban las funciones del objeto String
+
+--- 1.4 aplicación ---
+
+Descargado bootsrap para el diseño de la aplicación
+Creado los directorios para la aplicación

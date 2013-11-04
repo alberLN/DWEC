@@ -1,0 +1,7 @@
+creado index.html
+	Creado cuerpo de la aplicación con etiquetas en html5
+	Insertado bootstrap 3.0.1
+	Se ha introducido la parte de las instrucciones sobre el juego
+	Se ha introducido la parte en la que el usuario puede añadir mas palabras (inhabilitado falta .js)
+	Creado css para cambiar la disposición de los divs para mejorar la distribución para mayor comodidad del usuario
+	Añadido vídeo de fondo

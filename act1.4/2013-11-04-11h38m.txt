@@ -1,0 +1,5 @@
+Se ha empezado con la programación de eventos con javascript
+	El usuario ya puedo añadir tantas palabras como quiera
+	Se le avisa de si hay palabras repetidas
+	Siempre se ponen en mayúsculas para evitar problemas en el juego
+	

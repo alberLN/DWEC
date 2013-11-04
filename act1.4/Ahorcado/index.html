@@ -1,0 +1,45 @@
+<!--
+	Juego del ahorcado DWEC
+	Alberto Lahuerta Navarro DAW2A-M
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ahoracado 1.4</title>
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="frameworks/bootstrap/css/bootstrap.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/principal.css" media="screen" />
+	</head>
+	<body>
+		<!-- Pantalla de presentación -->
+		<video id="videoBackground" src="video/movie.m4v" autoplay loop />
+		<section id="principal">
+			<h1 id="titulo">¡¡Bienvendio al ahorcado 2.0!!</h1>
+			<div id="izquierda">
+				<h2>Añadir más palabras</h2>
+				<p>El ahorcado 2.0 dispone de unas cuantas palabras por defecto para poder jugar, pero te damos las opción de que puedas introducir tantas como quieras :)</p>
+				<p>Simplemente introduce la palabra desea en el siguiente cuadro de texto y haz click en el botón añadir</p>
+				<input type="text" id="nuevaPalabra"/>
+				<input class="btn btn-primary btn-ms" type="button" value="añadir"/>
+				<p id="mensaje"></p>
+			</div>
+			<div id="derecha">
+				<h2>Instrucciones</h2>
+				<p>Rellena los espacios que salen vacios, cada espacio equivale a una letra de la palabra seleccionada, seguidamente haz click en el boton enviar.</p>
+				<p>Si aciertas estupendo, si fallas se irá dibujando un muñequito ahorcado hasta que se dibuje por completo... eso significa que has perdido :(.</p>
+			</div>
+			<div id="empezar">
+				<h3>HAZ CLICK EN EL BOTÓN DE ABAJO PARA EMPEZAR</h3>
+				<input type="button"  class="btn btn-danger btn-lg" value="Empezar">
+			</div>
+		</section>
+		<!-- Juego -->
+		<section id="game" hidden>
+		
+		</section>
+		<!-- Resumen partida-->
+		<section id="resumenPartida" hidden>
+		
+		</section>
+	</body>
+</html>
