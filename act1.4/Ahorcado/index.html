@@ -14,9 +14,8 @@
 	</head>
 	<body>
 		<!-- Pantalla de presentación -->
-		<!--<video id="videoBackground" src="video/movie.m4v" autoplay loop />-->
 		<section id="principal">
-			<h1 id="titulo">¡¡Bienvendio al ahorcado 2.0!!</h1>
+			<h1 id="titulo">¡¡Bienvenido al ahorcado!!</h1><br />
 			<div id="izquierda">
 				<h2>Añadir más palabras</h2>
 				<p>El ahorcado 2.0 dispone de unas cuantas palabras por defecto para poder jugar, pero te damos las opción de que puedas introducir tantas como quieras :)</p>
@@ -30,14 +29,25 @@
 				<p>Rellena los espacios que salen vacios, cada espacio equivale a una letra de la palabra seleccionada, seguidamente haz click en el boton enviar.</p>
 				<p>Si aciertas estupendo, si fallas se irá dibujando un muñequito ahorcado hasta que se dibuje por completo... eso significa que has perdido :(.</p>
 			</div>
+			<br />
 			<div id="empezar">
 				<h3>HAZ CLICK EN EL BOTÓN DE ABAJO PARA EMPEZAR</h3>
-				<input type="button" class="btn btn-danger btn-lg" value="Empezar">
+				<input type="button" class="btn btn-danger btn-lg" value="Empezar" onclick="initGame()">
 			</div>
 		</section>
 		<!-- Juego -->
 		<section id="game" hidden>
-		
+			<b>Vidas restantes:&nbsp;<span id="vidas"></span></b>&nbsp;&nbsp;
+			<b>Hora de inicio:&nbsp;<span id="horaInicio"></span></b>&nbsp;&nbsp;
+			<b>Tiempo invertido:&nbsp;<span id="tiempo"></span></b>
+			<div id="imagenes">
+				<img id="3" src="img/1.png" hidden />
+				<img id="2" src="img/2.png" hidden />
+				<img id="1" src="img/3.png" hidden />
+			</div>
+			<ul id="letras">
+			</ul>
+			<input type="button" class="btn btn-danger btn-lg" id="comprobar" value="comprobar" onclick="validarLetras()"/>
 		</section>
 		<!-- Resumen partida-->
 		<section id="resumenPartida" hidden>

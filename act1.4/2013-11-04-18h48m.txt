@@ -1,0 +1,4 @@
+Se le han dado estilos a la pantalla del juego
+Las funciones básicas del juego funcionan todas (comprobar letras, comprobar vidas y restarlas)
+Se han añadido comentarios
+Ya se muestran las imagenes de un muñeco ahorcado a medida que vas perdiendo vidas
