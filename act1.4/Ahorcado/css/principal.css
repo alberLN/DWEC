@@ -67,3 +67,27 @@ body{
 }
 
 /*Ventana resumen*/
+@-webkit-keyframes oscillation
+{
+	from
+	{
+		-webkit-transform:rotate(-3deg);
+	}
+	to{
+		-webkit-transform:rotate(3deg);
+	}
+}
+ 
+@-moz-keyframes oscillation
+{
+	from{
+		-moz-transform:rotate(-3deg);
+	}
+	to{
+		-moz-transform:rotate(3deg);
+	}
+}
+.oscillate{   
+	-webkit-animation: oscillation 1s ease-in-out infinite alternate;
+	-moz-animation: oscillation 1s ease-in-out infinite alternate;
+}

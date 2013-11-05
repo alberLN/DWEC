@@ -1,0 +1,3 @@
+Finalizada la parte del resumen del juego
+Añadida una animación en css3
+Falta solucionar timer y arreglar <ul> css

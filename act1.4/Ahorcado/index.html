@@ -51,7 +51,18 @@
 		</section>
 		<!-- Resumen partida-->
 		<section id="resumenPartida" hidden>
-		
+			<img class="oscillate" id="imgAnimada" src="img/ahorcadoFinal.png"/>
+			<h1 id="tituloResultado"></h1>
+			<div id="resultados">
+				<ul>
+					<li id="tiempoInit"></li>
+					<li id="tiempoFin"></li>
+					<li id="tiempoInvertido"></li>
+					<li id="vidasInvertidas"></li>
+				</ul>
+				<h1 id="total"></h1>
+			</div>
+			<input type="button" class="btn btn-danger btn-lg" value="Reintentar" onclick="initGame()"/>
 		</section>
 	</body>
 </html>
