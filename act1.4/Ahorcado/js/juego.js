@@ -12,7 +12,9 @@ palabras[8] = "ANTENA";
 palabras[9] = "PERDER";
 palabras[10] = "GANAR";
 
-//Array donde van todas las letras puestas
+//Donde guardamos el numero aleatorio
+var numeroAleatorio = 0;
+//Array donde van todas las letras
 var letras = new Array();
 //Palabra seleccionada para el juego
 var palabraJuego;
@@ -91,7 +93,11 @@ function initGame()
 {
 	clear();
 	vidas = 3;
-	var numeroAleatorio = Math.floor((Math.random()*palabras.length)+0); //Es necesario el floor puesto que random te devuelve numeros decimales
+	var num = numeroAleatorio;
+	while(num == numeroAleatorio && palabras.length > 1)
+	{
+		numeroAleatorio = Math.floor((Math.random()*palabras.length)+0); //Es necesario el floor puesto que random te devuelve numeros con decimales
+	}
 	palabraJuego = palabras[numeroAleatorio];
 	document.getElementById("principal").style.display="none";
 	document.getElementById("3").style.display="none";
@@ -116,6 +122,7 @@ function initGame()
 function inicializarPantalla()
 {
 	var espacios = "";
+	cronometro();
 	for(var i = 0; i < palabraJuego.length; i++)
 	{
 		espacios = espacios + "<li><input type='text' class='letra' id='tb"+i+"' maxlength='1'/></li>";
@@ -125,7 +132,25 @@ function inicializarPantalla()
 	{
 		letras[i] = document.getElementById("tb"+i);
 	}
-	crono = setInterval(cronometro(), 1000);
+	crono = setInterval("cronometro()", 1000);
+}
+
+/*
+	Nombre función: estilizarTiempo
+	entrada:
+	salida: String
+	Descripción: Mira las horas, minutos y segundos y los pasa en una string
+	para imitar a un reloj.
+*/
+function estilizarTiempo()
+{
+	var h;
+	var m;
+	var s;
+	h = horas < 10 ?  "0"+horas : horas;
+	m = minutos < 10 ? "0"+minutos : minutos;
+	s = segundos < 10 ? "0"+segundos : segundos;
+	return h+":"+m+":"+s;
 }
 
 /*
@@ -137,17 +162,17 @@ function inicializarPantalla()
 function cronometro()
 {
 	segundos++;
-	if(segundos > 60)
+	if(segundos >= 60)
 	{
 		segundos = 0;
 		minutos++;
-		if(minutos > 60)
+		if(minutos >= 60)
 		{
-			minutos=0;
+			minutos = 0;
 			horas++;
 		}
 	}
-	document.getElementById("tiempo").innerHTML=horas+"º"+minutos+'"'+segundos+"'";
+	document.getElementById("tiempo").innerHTML = estilizarTiempo();
 }
 
 /*
@@ -162,20 +187,23 @@ function validarLetras()
 	var correcto = true;
 	for(var i = 0; i < palabraJuego.length; i++)
 	{
+		letras[i].style.backgroundColor = "#FFFFFF";
+		letras[i].style.color = "#000000";
 		if(letras[i].value != "")//los espacios no cuentan como error
 		{
 			if((letras[i].value).toUpperCase() == palabraJuego.charAt(i))
 			{
 				letras[i].value = (letras[i].value).toUpperCase();
 				letras[i].disabled = true;
-				letras[i].style.backgroundColor = "#FFFFFF";
+				letras[i].style.backgroundColor = "#468847";
 			}
 			else
 			{
 				document.getElementById(vidas).style.display="block";
-				letras[i].style.backgroundColor = "#FF0000";
+				letras[i].style.backgroundColor = "#d2322d";
 				correcto = false;
 			}
+			letras[i].style.color = "#FFFFFF";
 		}
 	}
 	finPartida(correcto);
@@ -239,12 +267,23 @@ function showDatos(ganado)
 {
 	document.getElementById("game").style.display="none";
 	document.getElementById("resumenPartida").style.display="block";
-	document.getElementById("tituloResultado").innerHTML = ganado ? "¡¡Felicidades!!, Has ganado" : "¡¡OOOOOHHHHH!!, Has perdido";
+	if(ganado)
+	{
+		document.getElementById("tituloResultado").style.color = "#468847";
+		document.getElementById("tituloResultado").innerHTML = "¡¡Felicidades!!, Has ganado";
+	}
+	else
+	{
+		document.getElementById("tituloResultado").style.color = "#d2322d";
+		document.getElementById("tituloResultado").innerHTML = "¡¡OOOOOHHHHH!!, Has perdido";
+	}
 	document.getElementById("tiempoInit").innerHTML = "Hora inicial: "+horaInit;
+	document.getElementById("palabraEscondida").innerHTML = "La palabra era... <b>"+palabraJuego+"</b>";
+	tiempo = new Date(); //para que se actualice la hora
 	document.getElementById("tiempoFin").innerHTML = "Hora Final: "+tiempo.getHours()+":"+tiempo.getMinutes()+":"+tiempo.getSeconds();
-	document.getElementById("tiempoInvertido").innerHTML = "Tiempo partida: "+horas+"º"+minutos+'"'+segundos+"'";
+	document.getElementById("tiempoInvertido").innerHTML = "Tiempo partida: "+estilizarTiempo();
 	document.getElementById("vidasInvertidas").innerHTML = "Vidas utilizadas: " + ( 3 - vidas);
-	document.getElementById("total").innerHTML = "Nota partida: "+media();
+	document.getElementById("total").innerHTML = "Puntos obtenidos: "+media();
 }
 
 /*
@@ -255,39 +294,14 @@ function showDatos(ganado)
 */
 function media()
 {
-	var media;
-	var mediaHoras = 10;
-	var mediaVidas = 10;
-	if(horas > 0)
+	var media = 0;
+	var puntoHoras = 0;
+	var puntoVidas = 0;
+	if(vidas > 0)
 	{
-		mediaHoras = 0;
+		puntoVidas = (vidas * 100); //Cada vida vale 100 puntos
+		mediaHoras =  (horas * 1.2) + (minutos * 0.9) + (segundos * 0.5);//Puntos que se han de restar por tiempo
+		media = puntoVidas - puntoHoras;
 	}
-	else
-	{
-		if(minutos > 5)
-		{
-			mediaHoras = 0;
-		}else if(minutos > 1){
-			mediaHoras = 5;
-		}else if(minutos == 0){
-			mediaHoras = (mediaHoras + (0.01 * segundos)); //plus por buen tiempo
-		}
-	}
-	switch(vidas)
-	{
-		case 0:
-			mediaVidas = 0;
-		break;
-		case 1:
-			mediaVidas = 5;
-		break;
-		case 2:
-			mediaVidas = 7;
-		break;
-		case 3:
-			mediaVidas = 10;
-		break;
-	}
-	media = (mediaVidas + mediaHoras) / 2;
-	return media.toFixed(2);
+	return media.toFixed(1);//redondeamos decimales
 }

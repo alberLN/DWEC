@@ -1,0 +1,8 @@
+Se ha solucionada el timer
+Solucionado el objeto Date que no actualizaba la hora
+Añadido más comentarios
+Se ha añadido mas estilos a los textbox de las letras, cuando fallas o aciertas se pone verde o rojo (antes solo rojo)
+Se ha mejorado el sistema de puntos, ahora es más "lógico"
+Ahora ya no se repite el numero aleatorio
+Finalizado el tema de diseño de la parte del resumen
+Se considera el proyecto finalizado -> ahoracado 1.0

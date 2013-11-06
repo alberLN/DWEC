@@ -67,6 +67,7 @@ body{
 }
 
 /*Ventana resumen*/
+/*---Animación---*/
 @-webkit-keyframes oscillation
 {
 	from
@@ -90,4 +91,8 @@ body{
 .oscillate{   
 	-webkit-animation: oscillation 1s ease-in-out infinite alternate;
 	-moz-animation: oscillation 1s ease-in-out infinite alternate;
+}
+
+#resultados ul{
+	list-style: none;
 }
