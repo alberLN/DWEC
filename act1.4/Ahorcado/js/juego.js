@@ -99,6 +99,8 @@ function initGame()
 		numeroAleatorio = Math.floor((Math.random()*palabras.length)+0); //Es necesario el floor puesto que random te devuelve numeros con decimales
 	}
 	palabraJuego = palabras[numeroAleatorio];
+	document.getElementById("ganar").style.display="none";
+	document.getElementById("perder").style.display="none";
 	document.getElementById("principal").style.display="none";
 	document.getElementById("3").style.display="none";
 	document.getElementById("2").style.display="none";
@@ -269,11 +271,13 @@ function showDatos(ganado)
 	document.getElementById("resumenPartida").style.display="block";
 	if(ganado)
 	{
+		document.getElementById("ganar").style.display="inline";
 		document.getElementById("tituloResultado").style.color = "#468847";
 		document.getElementById("tituloResultado").innerHTML = "¡¡Felicidades!!, Has ganado";
 	}
 	else
 	{
+		document.getElementById("perder").style.display="inline";
 		document.getElementById("tituloResultado").style.color = "#d2322d";
 		document.getElementById("tituloResultado").innerHTML = "¡¡OOOOOHHHHH!!, Has perdido";
 	}

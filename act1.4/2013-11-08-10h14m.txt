@@ -1,0 +1,2 @@
+Cambiado el diseño del de la página principal, se ha añadido un logo animado con css
+Ahora al ganar también se le añade una animación

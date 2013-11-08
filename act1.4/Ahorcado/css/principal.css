@@ -1,9 +1,14 @@
 body{
 	text-align: center;
-	background-image: url('../img/ahorcado.png');
-	background-repeat: no-repeat;
 }
 /*Ventana principal*/
+
+#logo{
+	width: 5%;
+	padding: 0%;
+	margin: 0%;
+}
+
 #principal{
 	margin-left: auto;
 	margin-right: auto;
@@ -67,7 +72,7 @@ body{
 }
 
 /*Ventana resumen*/
-/*---Animación---*/
+/*---Animación oscilación---*/
 @-webkit-keyframes oscillation
 {
 	from
@@ -91,6 +96,33 @@ body{
 .oscillate{   
 	-webkit-animation: oscillation 1s ease-in-out infinite alternate;
 	-moz-animation: oscillation 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes saltar
+{
+	from
+	{
+		-webkit-transform: translate(0px, 0px);
+	}
+	to{
+		-webkit-transform: translate(0px, 20px);
+	}
+}
+ 
+@-moz-keyframes saltar
+{
+	from
+	{
+		-moz-transform: translate(0px, 0px);
+	}
+	to{
+		-moz-transform: translate(0px, 20px);
+	}
+}
+
+.salto{   
+	-webkit-animation: saltar 0.2s ease-in-out infinite alternate;
+	-moz-animation: saltar 0.2s ease-in-out infinite alternate;
 }
 
 #resultados ul{
