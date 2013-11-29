@@ -1,0 +1,75 @@
+.titulo
+{
+	text-align: center;
+}
+.corredor
+{
+	text-align: center;
+	padding: 1%;
+}
+
+/*Estilos carretera*/
+.imagenCorredores
+{
+	width: 40px; 
+	height: 40px;
+	z-index:1;
+}
+
+#circuito
+{
+	min-height: 50%;
+	width: 90%;
+	float:right;
+}
+
+#botonHistorial
+{
+	float: left;
+	width: 10%;
+	min-height: 50%; 
+}
+
+.historialBoton
+{
+	float: left;
+	display: inline-block;
+}
+
+#carretera
+{
+	border-bottom: 1px solid black ;
+}
+
+#finish, #start
+{
+	height: 30%;
+	background-image: url('../img/metas.png');
+	border-bottom: 1px solid black ;
+}
+
+/*-------------------Calle------------------*/
+
+.calle
+{
+	width: 100%;
+}
+
+.botonHistorial, .meta
+{
+	width: 10%;
+	display: inline-block;
+}
+
+.corredorCalle
+{
+	width: 80%;
+	display: inline-block;
+}
+
+.meta
+{
+	height: 20%;
+	background-image: url('../img/metas.png');
+	display: inline-block;
+}

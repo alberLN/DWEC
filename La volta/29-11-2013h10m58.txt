@@ -1,0 +1,18 @@
+25/11/2013
+-> Creada estructura de archivos y carpetas para el proyecto
+-> Creada la estructura de la web
+-> Creada la estructura por donde circularan los corredores
+
+26/11/2013
+-> Descargado y editado todas las imágenes para los corredores
+
+27/11/2013
+-> Los corredores avanzan
+-> Se le puede añadir los metros que han de recorrer por turno
+
+28/11/2013
+-> Se ve el historial de los metros que recorre cada jugador por turno
+
+29/11/2013
+-> Se empieza a programar el evento de cargado y guardado del turno
+ 

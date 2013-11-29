@@ -2,12 +2,95 @@
 	<head>
 		<title>La volta</title>
 		<!-- Scripts -->
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/volta.js"></script>
+		<script type="text/javascript" src="js/basededatos.js"></script>
 		<!-- css -->
-		<link rel="stylesheet" type="text/css" href="css/bootsrap.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
 	</head>
 	<body>
-		
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-2 column">
+					-Logo la volta-
+				</div>
+				<div class="col-md-10 column">
+					-Titulo la volta-
+				</div>
+			</div>
+			<div class="row clearfix">
+				<div id="start" class="col-md-1 column contenido">
+				</div>
+				<div id="carretera" class="col-md-10 column contenido">
+					<div id="circuito"></div>
+					<div id="botonHistorial"></div>
+					<script>initWorld();</script>
+				</div>
+				<div id="finish" class="col-md-1 column contenido">
+				</div>
+				<div id="opciones">
+					<input type="button" onclick="move()" class="btn" value="Guardar Partida">
+					<input id="equipoA" type="button" class="btn" data-toggle="modal" data-target="#infoEquipo" value="EquipoA" onclick="setInfoEquipo(0)">
+					<input type="button" class="btn" onclick="pasarTurno()" value="Pasar turno">
+					<input id="equipoB" type="button" class="btn" data-toggle="modal" data-target="#infoEquipo" value="EquipoB" onclick="setInfoEquipo(1)">
+				</div>
+			</div>
+		</div>
+	
+		<!--Datos Equipo-->
+		<div class="modal fade" id="infoEquipo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 id="modalTituloEquipo" class="modal-title" id="myModalLabel"></h4>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="tabbable">
+			      	<ul class="nav nav-tabs">
+					  <li class="active"><a href="#pane1" data-toggle="tab">Metros por turno</a></li>
+					  <li><a href="#pane2" data-toggle="tab">Bolsa</a></li>
+					</ul>
+					<div class="tab-content">
+					    <div id="pane1" class="tab-pane">
+					    	<div id="corredores"></div>
+					    	<input id="cambiarMetros" type="button" value="Cambiar">
+					    </div>
+					    <div id="pane2" class="tab-pane">
+					      <h4>En la versión de prueba no hay bolsa</h4>
+					    </div>
+					</div><!-- /.tab-content -->
+				</div><!-- /.tabbable -->
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!-- Historial -->
+		<div class="modal fade" id="datosCorredor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Historial Corredor</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<h4>Equipo</h4>
+		      	<p id="pNEquipo"></p>
+		      	<h4>Historial</h4>
+		      	<ul id="historial"></ul>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
 	</body>
 </html>
