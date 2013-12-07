@@ -1,22 +1,106 @@
+/*
+	Nombre archivo: volta.js
+	Descripción: Todas las funciones para que funcione la simulación
+*/
+
 var equipos = new Array();//Array que contiene los dos equipos;
+var nombrePartida = "";
 var turno = 0;
-var numeroJugadores = 2;
-var metrosTotales = 10000;
+var numeroJugadores = 0;
+var metrosTotales = 0;
 
-$(document).ready(function(){
-	//alert("hola mundo");
-});
+/*
+	Nombre: comprobarDatos
+	Descripción: Comprobamos que todos los datos introducidos sobre la partida sean correctos
+	Entrada: --
+	Salida: --
+*/
+function comprobarPartida()
+{
+	$("#erroresNewGame").css("display", "none");
+	if($("#partidaName").val() == "")
+	{
+		errors("Introduce un nombre a la partida.");
+	}
+	else
+	{
+		if($("#metrosCarrera").val() == "")
+		{
+			errors("Introduce los metros de distancia.");
+		}
+		else if($("#metrosCarrera").val() < 5000)
+		{
+			errors("Los metros de la carrera han de ser superior a 5000");
+		}else if($("#metrosCarrera").val() == "")
+		{
+			errors("Introduce el numero de jugadores.");
+		}else if($("#nCorredores").val() == "")
+		{
+			errors("Introduce el número de corredores");
+		}else if($("#nCorredores").val() < 3 || $("#nCorredores").val() > 8)
+		{
+			errors("Solo pueden haber entre tres u ocho corredores a la vez");
+		}
+		else
+		{
+			comprobarEquipos();
+		}
+	}
+}
 
+/*
+	Nombre: comprobarEquipos
+	Descripción: Comprobamos que todos los datos introducidos sobre los equipos sean correctos y procedemos a inicializar la partida
+	Entrada: --
+	Salida: --
+*/
+function comprobarEquipos()
+{
+	if($("#nombreEquipo1").val() == "")
+	{
+		errors("Introduce el nombre del Equipo 1.");
+	}else if($("#nombreEquipo2").val() == "")
+	{
+		errors("Introduce el nombre del Equipo 2.");
+	}else if($("input[name='colorEquip1']:checked").val() == $("input[name='colorEquip2']:checked").val()){
+		errors("El color de los equipos no ha de coincidir.");
+	}
+	else
+	{
+		$("#nuevaPartida").css("display", "none");
+		$(".modal-backdrop").css("display", "none");
+		initWorld();
+		$("#inicio").css("display", "none");
+		$("#juego").css("display", "block");
+	}
+}
+
+/*
+	Nombre: errors()
+	Descripción: Muestra errores en caso de que se hayan introducido un dato correcto a la hora de crear una partida
+	Entrada: mensaje, String con el mensaje a mostrar
+	Salida: --
+*/
+function errors(mensaje)
+{
+	$("#erroresNewGame").css("display", "block");
+	$("#erroresNewGame").html(mensaje);
+}
 /*
 	Nombre: initWorld
 	Descripción: inicializa todas las variables para empezar la partida y printa las imagenes
-	Entrada: -
-	Salida: -
+	Entrada: --
+	Salida: --
 */
 function initWorld()
 {
-	equipos[0] = addEquipo(1, "hola", "r");
-	equipos[1] = addEquipo(2, "adios", "a");
+	nombrePartida = $("#partidaName").val();
+	metrosTotales = $("#metrosCarrera").val();
+	numeroJugadores = $("#nCorredores").val();
+	equipos[0] = addEquipo($("#nombreEquipo1").val(), $("input[name='colorEquip1']:checked").val());
+	equipos[1] = addEquipo($("#nombreEquipo2").val(), $("input[name='colorEquip2']:checked").val());
+	$("#equipoA").val("Equipo: "+equipos[0][0]);
+    $("#equipoB").val("Equipo: "+equipos[1][0]);
 	printarJugadores();
 }
 
@@ -26,34 +110,33 @@ function initWorld()
 	Entrada: Array del equipo vacía
 	Salida: Array del equipo inicializada
 */
-function addEquipo(equipo, nombreEquipo, colorEquipo)
+function addEquipo(nombreEquipo, colorEquipo)
 {
 	var equipo = new Array();
-	for(var a = 0; a < 3 + numeroJugadores; a++)
+
+	equipo[0] = nombreEquipo;
+	equipo[1] = colorEquipo;
+	equipo[2] = new Array();
+
+	for(var i = 0; i < numeroJugadores ; i++)
 	{
-		equipo[0] = nombreEquipo;
-		equipo[1] = colorEquipo;
-		a = 2;
-		for(var i = 0; i < numeroJugadores ; i++)
+		if(i > 0)
 		{
-			if(i > 0)
-			{
-				//[0]tipo corredor, [1]idCorredor, [2]imagencorredor, [3]metros recorridos, [4]metros que ha de recorrer en el siguiente turno, [5]historial
-				equipo[a] = new Array("gregario", "corredor"+i+nombreEquipo, getImgRunner("corredor"+i+nombreEquipo, colorEquipo, "gregario"), 0, 0, new Array());
-			}
-			else
-			{
-				equipo[a] = new Array("jefe de filas", "corredor"+i+nombreEquipo, getImgRunner("corredor"+i+nombreEquipo, colorEquipo, "jefe de filas"), 0, 0, new Array());
-			}
-			a++;
+			//[0]tipo corredor, [1]idCorredor, [2]imagencorredor, [3]metros recorridos, [4]metros que ha de recorrer en el siguiente turno, [5]historial
+			equipo[2][i] = new Array("gregario", "corredor"+i+nombreEquipo, getImgRunner("corredor"+i+nombreEquipo, colorEquipo, "gregario"), 0, 0, new Array());
+		}
+		else
+		{
+			equipo[2][i] = new Array("jefe de filas", "corredor"+i+nombreEquipo, getImgRunner("corredor"+i+nombreEquipo, colorEquipo, "jefe de filas"), 0, 0, new Array());
 		}
 	}
+
 	return equipo;
 }
 
 /*
 	Nombre: printarJugadores
-	Descripción: Imprime por pantalla todos los corredores
+	Descripción: Imprime por pantalla todos los corredores botones y características
 	Entrada: --
 	Salida: --
 */
@@ -61,10 +144,13 @@ function printarJugadores()
 {
 	for(var a = 0; a < equipos.length; a++)
 	{
-		for(var i = 2; i < equipos[a].length; i++)
+		for(var i = 0; i < equipos[a][2].length; i++)
 		{
-			var div = "<input type='button' data-toggle='modal' data-target='#datosCorredor' value='Historial' onclick='mostrarHistorial("+a+", "+i+")'>";
-			$("#circuito").append("<div class='calle'><div class='botonHistorial'>"+div+"</div><div class='corredorCalle'>"+equipos[a][i][2]+"</div><div class='meta'></div></div>");
+			var boton = "<input type='button' class='btn btn-info botonHistorial' data-toggle='modal' data-target='#datosCorredor' value='Historial' onclick='mostrarHistorial("+a+", "+i+")'>";
+			var ciclista = "<div class='col-md-10 column calle'>"+equipos[a][2][i][2]+"</div>";
+			$("#circuito").append("<div class='row clearfix'><div class='cold-md-1 column'>"+boton+"</div><div class='cold-md-1 column'></div>"+ciclista+"</div>");
+			var avance =  (equipos[a][2][i][3] / metrosTotales) * 100;
+			$("#"+equipos[a][2][i][1]).css("margin-left", avance+"%");
 		}
 	}
 }
@@ -75,16 +161,16 @@ function printarJugadores()
 	Entrada: idCorredor, color del equipo, equipo al que pertenece el corredor
 	Salida: String que contiene la img para introducir a la web
 */
-function getImgRunner(idCorredor, color, claseCorredor)
+function getImgRunner(idCorredor, color, claseCorredor)//metros recorridos
 {
 	var img;
 	if(claseCorredor == "gregario")
 	{
-		img = "<img id='"+idCorredor+"' class='imagenCorredores' src='img/1"+color+".png'>";
+		img = "<img id='"+idCorredor+"' class='imagenCorredores' style='margin-left: 0' src='img/1"+color+".png'>";
 	}
 	else
 	{
-		img = "<img id='"+idCorredor+"' class='imagenCorredores' src='img/2"+color+".png'>";
+		img = "<img id='"+idCorredor+"' class='imagenCorredores' style='margin-left: 0' src='img/2"+color+".png'>";
 	}
 
 	return img;
@@ -93,8 +179,8 @@ function getImgRunner(idCorredor, color, claseCorredor)
 /*
 	Nombre: pasarTurno
 	Descripción: Avanza la partida y guarda el historial del jugador
-	Entrada: -
-	Salida: -
+	Entrada: --
+	Salida: --
 */
 function pasarTurno()
 {
@@ -104,11 +190,10 @@ function pasarTurno()
 	{
 		for(var a = 0; a < equipos.length; a++)
 		{
-			for(var i = 2; i < equipos[a].length; i++)
+			for(var i = 0; i < equipos[a][2].length; i++)
 			{
 				moveCorredor(i, a);
-				equipos[a][i][5][turno] = equipos[a][i][4];
-				//equipos[a][i][3] = equipos[a][i][3] + equipos[a][i][4];
+				equipos[a][2][i][5][turno] = equipos[a][2][i][4];
 			}
 		}
 		turno++;
@@ -122,9 +207,9 @@ function pasarTurno()
 function getMetersteam(team)
 {
 	var total = 0;
-	for(var i = 2; i < equipos[team].length; i++)
+	for(var i = 0; i < equipos[team][2].length; i++)
 	{
-		total = total + equipos[team][i][4];
+		total = total + equipos[team][2][i][4];
 	}
 	return total;
 }
@@ -139,11 +224,10 @@ function setInfoEquipo(equipo)
 {
 	$("#modalTituloEquipo").html("Equipo: "+equipos[equipo][0]);
 	$("#corredores").empty();
-	for(var i = 2; i < equipos[equipo].length; i++)
+	for(var i = 0; i < equipos[equipo][2].length; i++)
 	{
-		$("#corredores").append(equipos[equipo][i][0] + " <input type='text' id='"+i+"' value='"+equipos[equipo][i][4]+"'><br>");
+		$("#corredores").append("<label>"+equipos[equipo][2][i][0]+"</label>" + "<div class='form-group'><input type='text' id='"+i+"' value='"+equipos[equipo][2][i][4]+"'></div>");
 	}
-
 	$("#cambiarMetros").attr("onclick", "cambiarMetros("+equipo+")");
 }
 
@@ -153,6 +237,7 @@ function setInfoEquipo(equipo)
 	Entrada: equipo, posicón del array donde se encuentra el equipo, idCorredor para encontrar el corredor en el array
 	Salida: -
 */
+
 function cambiarMetros(equipo)
 {
 	//primero comprobamos que el total da 1000
@@ -161,9 +246,9 @@ function cambiarMetros(equipo)
 	var idText = 2;
 	for(var i = 0; i < numeroJugadores && correcto; i++)
 	{
-		if(sum + parseInt($("#"+idText).val()) > 0)
+		if(sum + parseInt($("#"+i).val()) > 0)
 		{
-			sum = sum + parseInt($("#"+idText).val());
+			sum = sum + parseInt($("#"+i).val());
 		}
 		else
 		{
@@ -175,14 +260,14 @@ function cambiarMetros(equipo)
 	{
 		if(sum == 1000)
 		{
-			for(var i = 2; i < equipos[equipo].length; i++)
+			for(var i = 0; i < equipos[equipo][2].length; i++)
 			{
-				equipos[equipo][i][4] = parseInt($("#"+i).val());
+				equipos[equipo][2][i][4] = parseInt($("#"+i).val());
 			}
 		}
 		else
 		{
-			alert("revisa campos"+sum);
+			alert("revisa campos");
 		}
 	}
 	else
@@ -200,13 +285,14 @@ function cambiarMetros(equipo)
 function mostrarHistorial(equipo, idCorredor)
 {
 	$("#pNEquipo").html(equipos[equipo][0]);
+	$("#pMRecord").html(equipos[equipo][2][idCorredor][3]);
 	$("#historial").empty();
-	if(equipos[equipo][idCorredor][5] != "")
+	if(equipos[equipo][2][idCorredor][5] != "")
 	{
-		for(var i = 0; i < equipos[equipo][idCorredor][5].length; i++)
+		for(var i = 0; i < equipos[equipo][2][idCorredor][5].length; i++)
 		{
 			$("#historial").append("<li><b>Turno: </b>"+(i + 1)+"</li>");
-			$("#historial").append("<li><b>Metros recorridos: </b>"+equipos[equipo][idCorredor][5][i]+"</li>");
+			$("#historial").append("<li><b>Metros en el turno recorridos: </b>"+equipos[equipo][2][idCorredor][5][i]+"</li>");
 		}
 	}
 	else
@@ -217,13 +303,23 @@ function mostrarHistorial(equipo, idCorredor)
 
 /*
 	Nombre: moveCorredor
-	Descripción: Desplaza la imagen del jugador X distancia a la izquierda
+	Descripción: Desplaza la imagen del jugador X distancia a la izquierda y comprobando si ha llegado al final
 	Entrada: id de la imagen que es la misma que la del jugador, left el numero de metros que se ha de despalzar el corredor
 	Salida: -
 */
 function moveCorredor(posicion, equipo){
-	var metrosARecorrer = equipos[equipo][posicion][3] = equipos[equipo][posicion][3] + equipos[equipo][posicion][4];
+	var metrosARecorrer = equipos[equipo][2][posicion][3] + equipos[equipo][2][posicion][4];
 	var avance =  (metrosARecorrer / metrosTotales) * 100;
-	alert(equipos[equipo][posicion][3]);	
-	$("#"+equipos[equipo][posicion][1]).css("margin-left", avance+"%");
+	if(metrosARecorrer - metrosTotales <= 0)
+	{
+		$("#"+equipos[equipo][2][posicion][1]).css("margin-left", avance+"%");
+		equipos[equipo][2][posicion][3] = metrosARecorrer;
+
+	}
+	else
+	{
+		$("#"+equipos[equipo][2][posicion][1]).css("margin-left", 100+"%");
+		equipos[equipo][2][posicion][3] = metrosTotales;
+	}
+	
 }

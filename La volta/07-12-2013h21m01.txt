@@ -1,0 +1,30 @@
+1-12-2013
+
+Se empieza con el diseño para no dejarlo para el último momento
+
+2-12-2013
+
+Se implementa la gestión a la base de datos a partir de indexeddb
+
+3-12-2013
+
+Se soluciona el problema con el actualizar y añadir usuarios
+
+4-12-2013
+
+Se souciona el problema por el cual los ciclistas se pasan de la meta
+
+5-12-2013
+
+Se acaba el apartado de programación 
+La volta pasa a ser versión 0.5
+
+7-12-2013
+
+Se acaba con el diseño
+
+8-12-2013
+
+Se solcuionan problemas con el responsive en la página de inicio
+Se añaden estilos y botones con imagenes a diferentes botones para facilitar 
+la comprensión al usuario

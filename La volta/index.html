@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>La volta</title>
+		<meta charset="utf-8">
 		<!-- Scripts -->
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -11,30 +12,104 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 	</head>
 	<body>
-		<div class="container">
+		
+		<!-- Inicio -->
+		<div id="inicio" class="container cuerpo">
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					-Logo la volta-
-				</div>
-				<div class="col-md-10 column">
-					-Titulo la volta-
+				<div class="col-md-12 column">
+					<div class="row clearfix cuerpo">
+						<div class="col-md-1 column">
+							<img id="logo" alt="140x140" src="img/Logo_Vuelta.png" />
+						</div>
+						<div class="col-md-1 column">
+						</div>
+						<div class="col-md-10 column">
+							<div class="page-header">
+								<h1>
+									Simulador La Volta <small>Versión Beta</small>
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="row clearfix cuerpo">
+						<div class="col-md-6 column">
+							<div class="carousel slide" id="carousel-325304">
+								<ol class="carousel-indicators">
+									<li class="active" data-slide-to="0" data-target="#carousel-325304">
+									</li>
+									<li data-slide-to="1" data-target="#carousel-325304">
+									</li>
+									<li data-slide-to="2" data-target="#carousel-325304">
+									</li>
+								</ol>
+								<div class="carousel-inner">
+									<div class="item active">
+										<img alt="" class="" src="img/foto1.jpg" />
+									</div>
+									<div class="item">
+										<img alt="" src="img/foto2.jpg"/>
+									</div>
+									<div class="item">
+										<img alt="" class="" src="img/foto1.jpg"/>
+									</div>
+								</div> <a class="left carousel-control" href="#carousel-325304" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-325304" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							</div>
+							<h2>
+								La Volta
+							</h2>
+							<p>
+								La Volta es un complicado simulador de ciclismo para poder hacer grandes estudios con poco esfuerzo. En esta
+								primera versión contamos con la posibilidad de mover grupos de corredores a gusto del usuario, escojer nombre del equipo,
+								color del equipo y un historial por cada corredor entre otras características. 
+
+								Proximamente se implementará la bolsa, una opción en la cual el usuario podrá administrar Alimentos, Enregía entre otros a su equipo para aumentar el realismo de la simulación.
+							</p>
+						</div>
+						<div class="col-md-6 column">
+							<nav class="navbar navbar-default" role="navigation">
+								<div class="navbar-header">
+									 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Opciones Simulación</a>
+								</div>
+								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+									<form class="navbar-form navbar-left" role="search">
+										<button type="submit" data-toggle="modal" data-target="#nuevaPartida" class="btn btn-primary">Nueva Simulación</button>
+										<button type="submit" onclick="loadAllState()" data-toggle="modal" data-target="#cargarPartida" class="btn btn-success">Cargar Simulación</button>
+									</form>
+								</div>
+							</nav>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
+
+		<!-- zona juego -->
+		<div id="juego" class="container" hidden>
+			<div id="opciones">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+						 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#opcionesJuego"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Opciones Simulación</a>
+					</div>
+					
+					<div class="collapse navbar-collapse" id="opcionesJuego">
+						<form class="navbar-form navbar-left" role="search">
+							<button type="button" onclick="saveState()" class="btn btn-default">
+ 								<span class="glyphicon glyphicon-floppy-disk"></span> Guardar Partida
+							</button>
+							<input id="equipoA" type="button" class="btn btn-warning" data-toggle="modal" data-target="#infoEquipo" value="Equipo A" onclick="setInfoEquipo(0)">
+							<input type="button" class="btn btn-success" onclick="pasarTurno()" value="Pasar turno">
+							<input id="equipoB" type="button" class="btn btn-warning" data-toggle="modal" data-target="#infoEquipo" value="Equipo B" onclick="setInfoEquipo(1)">
+						</form>
+					</div>
+				</nav>
+			</div>
 			<div class="row clearfix">
-				<div id="start" class="col-md-1 column contenido">
+				<div class="col-md-1 column contenido">
 				</div>
 				<div id="carretera" class="col-md-10 column contenido">
 					<div id="circuito"></div>
-					<div id="botonHistorial"></div>
-					<script>initWorld();</script>
 				</div>
-				<div id="finish" class="col-md-1 column contenido">
-				</div>
-				<div id="opciones">
-					<input type="button" onclick="move()" class="btn" value="Guardar Partida">
-					<input id="equipoA" type="button" class="btn" data-toggle="modal" data-target="#infoEquipo" value="EquipoA" onclick="setInfoEquipo(0)">
-					<input type="button" class="btn" onclick="pasarTurno()" value="Pasar turno">
-					<input id="equipoB" type="button" class="btn" data-toggle="modal" data-target="#infoEquipo" value="EquipoB" onclick="setInfoEquipo(1)">
+				<div class="col-md-1 column contenido">
 				</div>
 			</div>
 		</div>
@@ -49,19 +124,10 @@
 		      </div>
 		      <div class="modal-body">
 		      	<div class="tabbable">
-			      	<ul class="nav nav-tabs">
-					  <li class="active"><a href="#pane1" data-toggle="tab">Metros por turno</a></li>
-					  <li><a href="#pane2" data-toggle="tab">Bolsa</a></li>
-					</ul>
-					<div class="tab-content">
-					    <div id="pane1" class="tab-pane">
-					    	<div id="corredores"></div>
-					    	<input id="cambiarMetros" type="button" value="Cambiar">
-					    </div>
-					    <div id="pane2" class="tab-pane">
-					      <h4>En la versión de prueba no hay bolsa</h4>
-					    </div>
-					</div><!-- /.tab-content -->
+		      		<form id="corredores" role="form">
+		      		</form>
+					
+					<input id="cambiarMetros" type="button" value="Cambiar">
 				</div><!-- /.tabbable -->
 		      </div>
 		      <div class="modal-footer">
@@ -82,15 +148,93 @@
 		      <div class="modal-body">
 		      	<h4>Equipo</h4>
 		      	<p id="pNEquipo"></p>
+		      	<h4>Metros recorridos</h4>
+		      	<p id="pMRecord"></p>
 		      	<h4>Historial</h4>
 		      	<ul id="historial"></ul>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 
+		<!-- configuración nueva partida -->
+		<div class="modal fade" id="nuevaPartida" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Nueva Simulación</h4>
+		      </div>
+		      <div class="modal-body">
+		      		<div id="erroresNewGame" class="alert alert-warning" hidden></div>
+					<form class="form-inline" role="form">
+						<div class="form-group">
+							 <input id="partidaName" type="text" class="form-control" placeholder="Nombre partida" required="required"/>
+						</div>
+						<div class="form-group">
+							 <input id="metrosCarrera" type="number" class="form-control" placeholder="Longitud carrera" min='5000' required="required"/>
+						</div>
+						<div class="form-group">
+							 <label for="exampleInputPassword1">Numero de Corredores en el pelotón</label>
+							 <input id="nCorredores" type="number" class="form-control textPartida" max='8' min='3'  />
+						</div>
+					</form>
+				
+					<form role="form">
+						<br><span class="label label-primary">Datos Equipo 1</span><br><br>
+						<div class="form-group">
+							 <label for="exampleInputEmail1">Nombre Equipo 1</label>
+							 <input type="text" class="form-control" id="nombreEquipo1" />
+						</div>
+						<div class="form-group">
+							 <label for="exampleInputEmail1">Color Equipo 1</label><br>
+							 <input type="radio" name="colorEquip1" value="n" checked="checked" /> <sapan><b>Negro</b></span>
+							 <input type="radio" name="colorEquip1" value="r" /> <sapan style="color: #ff0000"><b>Rojo</b></span>
+							 <input type="radio" name="colorEquip1" value="a" /> <sapan style="color: #0000ff"><b>Azul</b></span>
+						</div>
+					</form>
+					
+					<form role="form">
+						<br><span class="label label-primary">Datos Equipo 2</span><br><br>
+						<div class="form-group">
+							 <label for="exampleInputEmail1">Nombre Equipo 2</label>
+							 <input type="text" class="form-control" id="nombreEquipo2" />
+						</div>
+						<div class="form-group">
+							 <label for="exampleInputEmail1">Color Equipo 2</label><br>
+							 <input type="radio" name="colorEquip2" value="n" checked="checked" /> <sapan><b>Negro</b></span>
+							 <input type="radio" name="colorEquip2" value="r" /> <sapan style="color: #ff0000"><b>Rojo</b></span>
+							 <input type="radio" name="colorEquip2" value="a" /> <sapan style="color: #0000ff"><b>Azul</b></span>
+						</div>
+						<input type="button" class="btn" value="Empezar partida" onclick="comprobarPartida()">
+					</form>
+				</div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!-- configuración cargar partida -->
+		<div class="modal fade" id="cargarPartida" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Cargar Simulación</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<ul id="partidasGuardadas"></ul>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	</body>
 </html>
