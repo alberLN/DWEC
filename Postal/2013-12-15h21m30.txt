@@ -1,0 +1,34 @@
+7-12-2013
+
+Se crea la idea de la postal
+Se descarga kinetic y se estudia sus propiedades
+
+8-12-2013
+Se hacen pruebas con kinetic.js
+Se crean las animaciones el papanoel
+
+10-12-2013
+Se descargan las imágenes necesarias para crear la postal
+Se empiza a programar las animaciones de papaonel
+
+11-12-2013
+Se anima barcelona
+
+12-12-2013
+Se anima la nieve
+Se anima el aéreo de Barcelona
+
+13-12-2013
+Se animan las estrellas
+Se solucionan problemas con la nieve
+
+14-12-2013
+Se acaba de perfilar la animación del señor noel
+Se descarga la música para la postal y se introduce en la página
+Se crean los eventos para parar o continuar con la musica
+
+15-12-2013
+Se introducen los textos y fuentes necesarios para felicitar la navidad y los créditos del
+centro
+Se introduce el favicon
+Se termina la documentación sobre el proyecto
