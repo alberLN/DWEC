@@ -14,10 +14,26 @@
 
 function letrasAnim(layer, stage)
 {
+	var group = new Kinetic.Group({
+		x: 0,
+		y: 0
+	});
+	
+	var text2 = new Kinetic.Text({
+		x: 200,
+		y: 180,
+		text: "DAW2A us desitja un",
+		fontSize: 0,
+        fontFamily: 'Ruge Boogie',
+        fill: '#FFBF00',
+        stroke: 'black',
+        strokeWidth: 2
+	});
+	
 	var texto = new Kinetic.Text({
-        x: 340,
-        y: 200,
-        text: 'Bon Nadal',
+        x: 50,
+        y: 300,
+        text: 'Bon Nadal i Feliç Any Nou!!!',
         fontSize: 0,
         fontFamily: 'Ruge Boogie',
         fill: '#FFBF00',
@@ -25,13 +41,16 @@ function letrasAnim(layer, stage)
         strokeWidth: 2
     });
 
-	layer.add(texto);
+    group.add(text2);
+    group.add(texto);
+	layer.add(group);
 	stage.add(layer);
 
 	var scale;
 	var anim = new Kinetic.Animation(function(frame) {
 		if(texto.getFontSize() <= 90)
 		{
+			text2.setFontSize(text2.getFontSize() + 1);
     		texto.setFontSize(texto.getFontSize() + 1);
     	}
     	else
