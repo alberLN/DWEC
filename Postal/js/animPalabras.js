@@ -26,8 +26,8 @@ function letrasAnim(layer, stage)
 		fontSize: 0,
         fontFamily: 'Ruge Boogie',
         fill: '#FFBF00',
-        stroke: 'black',
-        strokeWidth: 2
+        stroke: 'white',
+        strokeWidth: 1
 	});
 	
 	var texto = new Kinetic.Text({
@@ -37,8 +37,8 @@ function letrasAnim(layer, stage)
         fontSize: 0,
         fontFamily: 'Ruge Boogie',
         fill: '#FFBF00',
-        stroke: 'black',
-        strokeWidth: 2
+        stroke: 'white',
+        strokeWidth: 1
     });
 
     group.add(text2);
