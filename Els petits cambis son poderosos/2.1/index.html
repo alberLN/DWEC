@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<!-- METAS -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!-- ESTILOS CSS -->
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<!-- SCRIPTS -->
+		<script src="js/jquery.js"></script>
+		<script src="js/jqueryUi.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/fichaClass.js"></script>
+		<script src="js/casillaClass.js"></script>
+		<script src="js/tableroClass.js"></script>
+		<script src="js/comportamientosClass.js"></script>
+		<script src="js/juegoClass.js"></script>
+		<script src="js/inicio.js"></script>
+	</head>
+	<body>
+		<!-- Panel de infromación -->
+		<div id="divInfo">
+			<div id="containerDivInfo" class="contentNormal" hidden>
+				<span id="tituloDivInfo" class="tituloDivInfo">El petits canvis són poderosos</span><br><br>
+				<div id="textDivInfo">
+					El Dr. Schelling (http://es.wikipedia.org/wiki/Thomas_Schelling) en un intent
+					d'explicar com de fàcil és evitar la segregació i el conflicte entre grups socials va idear un
+					experiment que actualment ha esdevedingut molt conegut.
+				</div>
+				<input id="buttonReiniciar" type="button" onclick="StartRestart(true)" class="btn btn-danger" value="Reiniciar Juego" hidden>
+			</div>
+			
+			<img id="infoBoton" src="img/puntoInfo.png">
+		</div>
+		<div id="Titulo">El petits canvis són poderosos</div>
+		<div id="Menu">
+			<div id="MenuItems">
+				<div class="ItemMenu" id="game1" data-toggle="modal" data-target="#juego1">
+					<img class="bandage" src="img/juego1.png">
+				</div>
+				<div class="ItemMenu" id="game2" data-toggle="modal" data-target="#juego2">
+					<img class="bandage" src="img/juego2.png">
+				</div>
+				<div class="ItemMenu" id="game3" onclick="prepararTodo(3)">
+					<img class="bandage" src="img/juegoVida.png">
+				</div>
+			</div>
+		</div>
+		<div id="tablero"></div>
+		<div id="buttonPasarTurno">
+			Pasar <br> Turno
+		</div>
+		<!--Modales-->
+		<div class="modal fade" id="juego1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Segregación comportamineto A</h4>
+			  </div>
+			  <div class="modal-body">
+				Las fichas solo seran felices con vecinos del mismo color.<br>
+				<label>Numero de vecinos</label><br>
+				<input type="radio" name="group2" value="1" checked>1
+				<input type="radio" name="group2" value="2"> 2
+				<input type="radio" name="group2" value="3">3<br>
+				<label>Porcentaje de fichas amarillas</label>
+				<select id="dwl_juego1PorAmarillas">
+				  <option value="50">50%</option>
+				  <option value="60">60%</option>
+				  <option value="70">70%</option>
+				  <option value="80">80%</option>
+				  <option value="90">90%</option>
+				</select><br>
+				<label>Porcentaje de espacios vacios</label>
+				<select id="dwl_juego1PorVacio">
+				  <option value="30">30%</option>
+				  <option value="35">35%</option>
+				  <option value="40">40%</option>
+				  <option value="45">45%</option>
+				</select>
+			  </div>
+			  <div class="modal-footer">
+				<button onclick="prepararTodo(1)" type="button" class="btn btn-danger" data-dismiss="modal">Empezar</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="modal fade" id="juego2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Segregación comportamineto B</h4>
+			  </div>
+			  <div class="modal-body">
+				Las fichas solo seran felices, siempre y cuando una ficha tenga un vecino de un color diferente.<br>
+				<label>Porcentaje de fichas amarillas</label>
+				<select id="dwl_juego2PorAmarillas">
+				  <option value="50">50%</option>
+				  <option value="60">60%</option>
+				  <option value="70">70%</option>
+				  <option value="80">80%</option>
+				  <option value="90">90%</option>
+				</select><br>
+				<label>Porcentaje de espacios vacios</label>
+				<select id="dwl_juego2PorVacio">
+				  <option value="30">30%</option>
+				  <option value="35">35%</option>
+				  <option value="40">40%</option>
+				  <option value="45">45%</option>
+				</select>
+			  </div>
+			  <div class="modal-footer">
+				<button onclick="prepararTodo(2)" type="button" class="btn btn-danger" data-dismiss="modal">Empezar</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	</body>
+</html>

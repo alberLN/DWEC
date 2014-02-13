@@ -1,0 +1,60 @@
+17/02/2014
+Se hace el uml y se le enseña al profesor para que nos de el visto bueno
+
+18/02/2014
+Se hacen las primeras funciones del expremiento A
+Se Crean celdas
+Se crean fichas segun las opciones determinadas
+Se introduce jquery y jqueryUI
+
+19/02/2014
+Funcionan los comportamientos del experimento A
+Drag & Drop finalizado
+Se finaliza experimento A
+
+24/02/2014
+Se copian y cambian pequeños aspectos de las funciones del experimento A para que crear nuevos comportamientos para el experimento B
+Falla en un comportamiento
+
+25/02/2014
+Se pregunta la profesor por el fallo, fallo solucionado, no se controlaba un aspecto
+Se actualiza la funcion de estadoAnimo de experimento A y B
+Experimento B finalizado
+
+03/02/2014
+Se hacen todas las funciones del juego de la vida
+
+04/02/2014
+Se solucionan algunos problemas en las funciones en que las celulas no se reproducian
+Se soluciona el problema en que el movimiento de la celula entraba en un bucle infinito
+
+05/02/2014
+Se finalizan todas las funciones para los callbacks del juego de la vida 
+
+06/02/2014
+Se soluciona el problema en que no se llamaba a los callbacks
+Se imprimen de forma correcta por pantalla
+
+07/02/2014
+Se finaliza el juego de la vida
+
+08/02/2014
+Se acaba de acoplar todas las clases y callbacks para que todo funcione al hacer clik en alguno de los botones de 
+los juegos para iniciar la partida
+
+09/02/2014
+Se finaliza la progrmación de la aplicación
+Se introducen los comentarios al código
+
+10/02/2014
+Se hace una primera idea del diseño de la aplicación
+Se crean imágenes para el diseño de la aplicación
+Se empieza con el diseño
+
+11/02/2014
+Se continua con el diseño de la aplicación
+
+12/02/2014
+Se finaliza el diseño de la aplicación
+Se hace la documentación
+Fin proyecto

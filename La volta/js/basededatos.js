@@ -1,6 +1,6 @@
 /*
     Nombre archivo: basededatos.js
-    Descripción: Todas las funciones relacionadas con la administración de la base ded atos y sus registros
+    Descripción: Todas las funciones relacionadas con la administración de la base de datos y sus registros
 */
 
 var idbSupported = false;
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){
         {
             var thisDB = e.target.result;
             
-            /* crear objeto si existe*/
+            /* crear objeto si no existe*/
             if(!thisDB.objectStoreNames.contains("guardado")) {
                 var datosGuardados = thisDB.createObjectStore("guardado",{autoIncrement: true});
                 datosGuardados.createIndex("name", "name", {unique:true});
@@ -79,7 +79,7 @@ function createState()
 }
 
 /*
-    Nombre: createState
+    Nombre: saveState
     Descripción: Guarda el estado de una partida ya creada
     Entrada: --
     Salida: --

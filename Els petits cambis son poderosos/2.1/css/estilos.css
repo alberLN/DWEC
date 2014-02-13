@@ -1,0 +1,237 @@
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#Titulo{
+	position: absolute;
+	margin-top: 10px;
+	color: #FF8800;
+	font-size: 30px;
+	font-family: 'Lily Script One', cursive;
+	text-align:center;
+	margin-left: 35.5%;
+	clear:both;
+	
+}
+
+/*ESTILOS MENU*/
+
+#Menu
+{
+	width: 100%;
+	height: 100%;
+	clear:both;
+	position: absolute;
+}
+
+#MenuItems
+{
+	text-align: center;
+	width: 100%;
+	height: 30%;
+	background: #242424;
+	border-top: 2px solid #f2f2f2;
+	border-bottom: 2px solid #f2f2f2;
+	margin-top: 15%;
+	position: absolute;
+}
+
+.ItemMenu
+{
+	margin-top: 2%;
+	margin-left: 1%;
+	width: 150px;
+	height: 150px;
+	border-radius: 3px;
+	background: #f2f2f2;
+	border: 1px solid #f2f2f2;
+	display: inline-block;
+}
+
+.ItemMenu:hover
+{
+	cursor: pointer;
+	border: 1px solid #FF8800;
+}
+
+.bandage
+{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	margin-left: -18px;
+	margin-top: -7px;
+}
+
+/*ESTILOS TABLERO*/
+
+#tablero
+{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center;
+}
+
+#game1{
+	background-image: url('../img/portadaJuego1.png');
+}
+
+#game2{
+	background-image: url('../img/portadaJuego2.png');
+}
+
+#game3{
+	background-image: url('../img/portadaJuego3.png');
+}
+
+#game1, #game2, #game3{
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#infoBoton:hover
+{
+	cursor: pointer;
+	clear: both;
+}
+
+.casilla
+{
+	width: 60px;
+	height: 60px;
+	display: inline-block;
+	border: 2px solid #adaca9;
+	margin: 1px;
+	border-radius: 5px;
+}
+
+.casilla:hover
+{
+	background: #06a25f;
+}
+
+.casillaPosible
+{
+	background: #AA66CC;
+}
+
+.ficha
+{
+	position:absolute;
+	margin: 3px;
+	width: 50px;
+	height: 50px;
+	border-radius: 40px;
+	border: 2px solid white;
+}
+
+.celula
+{
+	position:absolute;
+	margin: 3px;
+	width: 50px;
+	height: 50px;
+	border-radius: 40px;
+	background-image: url('../img/cell.png');
+}
+
+.fichaA
+{
+	background: #FF8800;
+}
+
+.fichaB
+{
+	background: #0099CC;
+}
+
+.fichaTriste
+{
+	background-image: url('../img/triste.png');
+	background-position: center;
+}
+
+.fichaTriste:hover
+{
+	cursor: pointer;
+}
+
+.fichaMal
+{
+	text-align: center;
+}
+
+ /* OTROS */
+ 
+#buttonPasarTurno
+{
+	padding: 10px;
+	text-align: center;
+	display: none;
+	color: white;
+	font-weight: bold;
+	margin-top: -350px;
+	position: fixed;
+	margin-left: 85%;
+	width: 70px;
+	height: 70px;
+	border: 2px solid #669900;
+	-webkit-border-radius: 300px;
+	border-radius: 300px;
+	background: #99CC00;
+}
+
+#buttonPasarTurno:hover
+{
+	cursor: pointer;
+	background: #669900;
+	border: 2px solid #99CC00;
+}
+.modal-body{
+	text-align: center;
+}
+
+/*Caja info*/
+#divInfo{
+	width: 300px;
+	padding: 0;
+	min-height: 200px;
+	margin-top: -1%;
+	margin-left: 5%;
+	text-align: center;
+	z-index: 100;
+	position: absolute;
+}
+
+#containerDivInfo
+{
+	padding: 1%;
+	border-radius: 3px;
+	width: 300px;
+	color: #242424;
+	background: white;
+}
+
+.contentNormal
+{
+	border: 2px solid #669900;
+}
+
+.contentGame
+{
+	border: 2px solid #CC0000;
+}
+
+#buttonReiniciar{
+	display: none;
+}
+
+.tituloDivInfo
+{
+	font-size: 20px;
+	font-weight: bold;
+}
