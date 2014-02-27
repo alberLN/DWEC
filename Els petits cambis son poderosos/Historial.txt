@@ -58,3 +58,22 @@ Se continua con el diseño de la aplicación
 Se finaliza el diseño de la aplicación
 Se hace la documentación
 Fin proyecto
+
+14/02/2014
+Se experimenta con json
+
+24/02/2014
+Se hace el guardar con json en el proyecto
+Se hace una clase nueva para encapsular mejor el guardado
+Se finaliza el guardado
+
+25/02/2014
+Se hace la carga de archivo
+Se corrigen algunos problemas de carga
+
+26/02/2014
+Se hace el diseño de cargar y guardar
+
+27/02/2014
+Se solucionan errores con el diseño
+Fin proyecto

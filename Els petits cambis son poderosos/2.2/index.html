@@ -15,9 +15,20 @@
 		<script src="js/comportamientosClass.js"></script>
 		<script src="js/juegoClass.js"></script>
 		<script src="js/inicio.js"></script>
+		<script src="js/partidaGuardada.js"></script>
 	</head>
 	<body>
 		<!-- Panel de infromación -->
+		<div id="divMenu">
+			<div id="containerDivMenu" class="contentNormal" hidden>
+				<p>Menú para cargar o guardar partida con <b style="color: #33B5E5">JSON</b>.<br> Guarda bien el archivo para reutilizarlo ;)</p>
+				<input id="cargar" type="Button" class="btn btn-primary" onclick="loadFile()" value="Cargar">
+				<a id="guardar" onclick="guardar()" class="btn btn-success">Guardar</a>
+				<span id="contenidoGuardado"></span>
+				<input id="fich" name="files[]" type="file" class="hidden">
+			</div>
+			<img id="menuBoton" src="img/menu.png">
+		</div>
 		<div id="divInfo">
 			<div id="containerDivInfo" class="contentNormal" hidden>
 				<span id="tituloDivInfo" class="tituloDivInfo">El petits canvis són poderosos</span><br><br>
@@ -28,7 +39,6 @@
 				</div>
 				<input id="buttonReiniciar" type="button" onclick="StartRestart(true)" class="btn btn-danger" value="Reiniciar Juego" hidden>
 			</div>
-			
 			<img id="infoBoton" src="img/puntoInfo.png">
 		</div>
 		<div id="Titulo">El petits canvis són poderosos</div>

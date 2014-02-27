@@ -22,7 +22,7 @@ function ficha(tipo, estado, id_ficha, estadoAnimo, dondeir, getFicha){
 			},
 			stop : function()
 			{
-				partida.tableroJuego.actualizarCasillas(); //error
+				partida.tableroJuego.actualizarCasillas(); 
 			}
 		});
 	}

@@ -2,7 +2,7 @@ function juego(tipoJuego, porcientoVacias, porCientoFichasAmarillas)
 {
 	this.porcientoVacias = porcientoVacias;
 	this.porCientoFichasAmarillas = porCientoFichasAmarillas;
-	this.casillas;//numero de casillas jugables segúns el%
+	this.casillas;
 	this.vecinos;
 	this.tipoJuego = tipoJuego;
 	this.tableroJuego;

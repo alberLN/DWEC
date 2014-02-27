@@ -116,6 +116,17 @@ function tablero(fila, colum, cantidadA, cantidadB){
 				}
 			}
 		}
+		this.setLive();
+	}
+	
+	/*
+	Nombre: setLive
+	Parametros:
+	Retorna: 
+	Descripcion: inicializa vida a las celulas
+	*/
+	this.setLive = function()
+	{
 		for(var i = 0; i < this.filas; i++)//dar vida a las fichas
 		{
 			$("#tablero").append("<div id='fila"+i+"'></div>");

@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>Prueba json</title>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	</head>
+	<body>
+		<span id="container"></span>
+		<script>
+			var hola = function(){
+				this.adios = "adios";
+				this.malo = "malo";
+				this.numero = 1;
+			};
+			adios = new hola();
+			var obj = JSON.stringify(adios);//pasar a string un objeto
+			var objeto = JSON.parse(obj);
+			var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(objeto));
+			$('<a href="data:' + data + '" download="data.json">descragar JSON</a>').appendTo('#container');
+		</script>
+	</body>
+</html>
