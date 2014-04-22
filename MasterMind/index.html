@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Master Mind</title>
+		<link rel="stylesheet" type="text/css" href="css/jqueryUi.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/juego.css">
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jqueryUI.js"></script>
+		<script type="text/javascript" src="js/Cookies.js"></script>
+		<script type="text/javascript" src="js/Utils.js"></script>
+		<script type="text/javascript" src="js/Config.js"></script>
+		<script type="text/javascript" src="js/Master.js"></script>
+		<script type="text/javascript" src="js/MasterUi.js"></script>
+		<script type="text/javascript" src="js/Events.js"></script>
+	</head>
+	<body>
+		<div id="modal" class="hidden">
+			<div id="modalBody">
+				<div id="modalBodyBarra">
+					<div id="tituloModal"></div>
+					<div id="cerrarModal"><img src="img/no.png"></div>
+				</div>
+				<p id="cuerpoModal"></p>
+			</div> 
+		</div>
+		<h1 id="tituloMasterMind">Mastermind</h1>
+		<div id="cuerpo">
+			<span id="divInfo"> 
+				<div id="cuerpoDivInfo">
+					<div id="cuerpoDivInfoInstrucciones" class="">
+						<h3>Instrucciones</h3>
+						<p>Master Mind es un juego de estratégia con el objetivo de adivinar un código de colores se crea de forma aleatoria</p><br>
+						<div id="cuerpoDivInfoSimbologia">
+							<ul>
+								<li><img src="img/ok.png">Indica que la ficha está en la posición correcta</li>
+								<li><img src="img/ko.png">Indica que la ficha está en el código, pero no en la posición correcta</li>
+								<li><img src="img/no.png">Indica que la ficha no está en el código</li>
+							</ul>
+						</div><br>
+						<h3>Drag & Drop</h3>
+						<p>Arrastra la ficha que deaseas del menú de la izquierda a las casillas de la derecha, en caso de que quieras eliminar algun haz click encima de ella</p>
+						<img src="img/dragdrop.png">
+						<h3>Caja Rápida</h3>
+						<p>Introduce una secuencia de numeros que representan las fichas, los numeros que representan las fichas se encuentran encima de las mismas. Cuando tengas la secuencia pulsa intro</p>
+						<img src="img/cajarapidaTutorial.png">
+					</div>
+				</div>
+				<p id="infoOportuniti">Número de oprtunidades <span id="totalOportunidades">8</span></p><br>
+				<div id="slider"></div><br>
+				<input type="button" class="button" id="iniciarPartida" value="Iniciar Juego">
+			</span>
+			<span id="tableroJuego" class="hidden">
+				<input type="button" class="button" id="pasarTurno" value="Pasar Turno">
+				<div id="menuFichas">
+					<div id="1" class="ficha fichaRosa">1</div>
+					<div id="2" class="ficha fichaLila">2</div>
+					<div id="3" class="ficha fichaAmarilla">3</div>
+					<div id="4" class="ficha fichaAzul">4</div>
+					<div id="5" class="ficha fichaRoja">5</div>
+					<div id="6" class="ficha fichaNaranja">6</div>
+				</div>
+				<div id="tablero">
+					<span id="tableroPartidas"></span>
+					<input id="cajaRapida" maxlength="5" type="text">
+				</div>
+			</span>
+		</div>
+	</body>
+</html>

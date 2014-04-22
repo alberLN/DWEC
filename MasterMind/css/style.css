@@ -1,0 +1,191 @@
+@import url(http://fonts.googleapis.com/css?family=Flavors);
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.hidden{
+	display: none;
+}
+
+#tituloMasterMind{
+	text-align: center;
+	font-size: 100px;
+	font-family: 'Flavors', cursive;
+}
+
+#cuerpo
+{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 10px;
+}
+
+/*Estilos pantall principal*/
+#cuerpoDivInfoInstrucciones{
+	font-family: sans-serif;
+	width: 1000px;
+	height: 350px;
+	overflow: scroll;
+}
+
+#cuerpoDivInfoInstrucciones h3, p{
+	margin: 5px;
+	text-align: center;
+}
+
+#cuerpoDivInfoSimbologia{
+	width: 490px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#cuerpoDivInfoInstrucciones ul{
+	list-style: none;
+	text-align: justify;
+	margin-left: auto;
+	margin-left: auto;
+}
+
+.imgTuto{
+	width: 450px;
+	height: 350px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#infoOportuniti{
+	font-size: 40px;
+	font-family: 'arial';
+}
+
+.button{
+	color:#fff;
+	border-style: none;
+	padding: 10px;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+	border-radius: 5px;
+}
+
+.button:hover{
+	background-color: #47a447;
+	border-color: #398439;
+	cursor: pointer;
+}
+
+/*modal*/
+#modal{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 100;
+}
+
+#modalBody{
+	font-family: 'Arial';
+	background: white;
+	width: 25%;
+	height: 35%;
+	margin-top: 10%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+}
+
+#modalBodyBarra{
+	padding: 1%;
+}
+
+#tituloModal{
+	display: inline-block;
+}
+
+#cerrarModal{
+	float: right;
+	display: inline-block;
+}
+
+#cerrarModal:hover{
+	cursor: pointer;
+}
+
+/*tablero*/
+#menuFichas{
+	background: #8B0000;
+	background-image: url('../img/wood_grain.gif');
+	padding: 10px;
+	width: 45px;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+#tablero{
+	background: #8B0000;
+	background-image: url('../img/wood_grain.gif');
+	background-size: 600px 100px;
+	padding: 10px;
+	width: 500px;
+	height: 500px;
+	overflow: auto;
+	border-radius: 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.jugadaAciertos{
+	width: 100px;
+	height: 20px;
+	display: inline-block;
+	background: #f2f2f2;
+	margin-left: 10px;
+	border: 1px solid white;
+	border-radius: 5px;
+	vertical-align: super;
+}
+
+.jugadaFichas{
+	display: inline-block;
+}
+
+.jugada{
+
+	width: 100%;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	background: red;
+	background-image: url('../img/woodJuego.jpg');
+}
+
+.jugadaNumero{
+	color: #fff;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 20px;
+	display: inline-block;
+	vertical-align: super;
+}
+
+.ficha{
+	width: 40px;
+	height: 40px;
+	margin-top: 5px;
+	background: #f2f2f2;
+	text-align: center;
+	-webkit-border-radius: 2200px;
+	-moz-border-radius: 2200px;
+	border-radius: 2200px;
+	display: inline-block;
+}
+
+.ficha:hover{
+	cursor: pointer;
+}
+
+#cajaRapida{
+	text-align: center;
+}

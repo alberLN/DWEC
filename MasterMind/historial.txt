@@ -1,0 +1,29 @@
+03/04/2014
+Se hace el diseño basico de la aplicacion 
+Se Empieza con el pasar turno
+Drag and drop funcional
+
+04/04/2014
+Se continua con el pasar turno
+Se acaba con el pasar turno
+
+06/04/2014
+Se finaliza con la progrmacion para saber si las fichas estan bien puestas
+Pasar turno funciona de forma correcta
+El diseño principal está acabado
+
+07/04/2014
+Caja rápida funciona de forma correcta
+Se empieza con el diseño de la pagina principal
+
+08/04/2014
+Se finaliza con la pantalla de inicio del proyecto
+
+09/04/2014
+Se continua con el diseño
+El modal funciona correctamente
+
+10/04/2014
+Se hacen las cookies
+Se finaliza con el estilo del proyecto
+Se comenta el proyectoo

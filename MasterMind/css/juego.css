@@ -1,0 +1,45 @@
+.fichaRosa{
+	background: #f06e9c;
+}
+
+.fichaLila{
+	background: #7e2199;
+}
+
+.fichaAmarilla{
+	background: #f4eb49;
+}
+
+.fichaAzul{
+	background: #00c8f8;
+}
+
+.fichaRoja{
+	background: #e61610;
+}
+
+.fichaNaranja{
+	background: #ff6624;
+}
+
+.pista{
+	margin-left: auto;
+	margin-right: auto;
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+}
+.ok{
+	background-image: url('../img/ok.png'); 
+	background-size: 100% 100%;
+}
+
+.ko{
+	background-image: url('../img/ko.png'); 
+	background-size: 100% 100%;
+}
+
+.no{
+	background-image: url('../img/no.png'); 
+	background-size: 100% 100%;
+}
